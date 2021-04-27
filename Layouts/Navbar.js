@@ -23,10 +23,10 @@ export default function Navbar() {
                     <Menu />
                 </IconButton>
                 <Link href="/" passHref>
-                    <Button variant="contained" disableElevation disableRipple color="primary">Home</Button>
+                    <Button variant="contained" disableElevation color="primary">Home</Button>
                 </Link>
                 <Link href="/movie" passHref>
-                    <Button variant="contained" color="primary">Movie</Button>
+                    <Button variant="contained" disableElevation color="primary">Movie</Button>
                 </Link>
             </Toolbar>
         </AppBar>

@@ -13,7 +13,7 @@ export default function Movie() {
     const classes = useStyles();
 
     const fetchAPI = async keyword => {
-        const result = await fetch(`http://www.omdbapi.com/?apikey=ede299a&type=movie&s=${keyword}`);
+        const result = await fetch(`https://www.omdbapi.com/?apikey=ede299a&type=movie&s=${keyword}`);
         const data = await result.json();
         if (data.Error) return setMovies([]);
         setMovies(data.Search);
