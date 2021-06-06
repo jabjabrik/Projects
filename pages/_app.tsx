@@ -4,7 +4,7 @@ import theme from '../src/theme';
 import '../style/globals.css'
 import 'tailwindcss/tailwind.css'
 import Layout from '../layout'
-import { useState } from 'react'
+import { useState } from 'react';
 
 
 export default function App({ Component, pageProps }: AppProps) {
