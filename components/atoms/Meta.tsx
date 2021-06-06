@@ -1,23 +1,28 @@
-import Head from "next/head";
+import Head from "next/head"
 
-const Meta = ({ keywords, description, title }) => {
+interface MetaProps {
+    keywords?: string, 
+    description?: string, 
+    title: string,
+}
+
+const Meta = ({ keywords, description, title }: MetaProps) => {
     return (
         <Head>
             <meta charSet="utf-8" />
-            <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="keywords" content={keywords} />
             <meta name="description" content={description} />
             <link rel="icon" href="favicon.ico" />
-            <title>{title}</title>
+            <title>projects | {title}</title>
         </Head>
-    );
-};
+    )
+}
 
 Meta.defaultProps = {
-    title: 'Projects',
-    description: 'welcome to the my projects',
+    title: 'NextJs',
+    description: 'Get the latest news in web dev',
     keywords: 'web development, programming'
-};
+}
 
-export default Meta;
+export default Meta
