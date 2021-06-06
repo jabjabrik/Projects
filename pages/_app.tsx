@@ -1,6 +1,5 @@
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from '@material-ui/core/styles';
-import { CssBaseline } from '@material-ui/core';
 import theme from '../src/theme';
 import '../style/globals.css'
 import 'tailwindcss/tailwind.css'
@@ -14,7 +13,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
     return (
         <ThemeProvider theme={theme}>
-            {/* <CssBaseline /> */}
             <Layout active={active} isDark={isDark} setIsDark={setIsDark}>
                 <Component {...pageProps} setActive={setActive} isDark={isDark}/>
             </Layout>

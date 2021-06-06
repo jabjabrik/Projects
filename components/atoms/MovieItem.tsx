@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import DialogControl from '../molecules/DialogControl';
 
 type MovieItemProps = {
@@ -7,15 +6,6 @@ type MovieItemProps = {
     year: string,
     poster: string,
 }
-
-const useStyles = makeStyles({
-    root: {
-        maxWidth: 345,
-    },
-    media: {
-        height: 140,
-    },
-});
 
 const MovieItem = ({ title, year, poster }: MovieItemProps) => {
     const [open, setOpen] = useState<boolean>(false);
