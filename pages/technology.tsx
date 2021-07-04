@@ -1,5 +1,5 @@
-import { useEffect } from "react"
-import Meta from "../components/atoms/Meta";
+import { useEffect } from 'react';
+import { Meta } from '../components/atoms';
 
 interface TechnologyProps {
     setActive: (params: string) => void,
@@ -7,8 +7,8 @@ interface TechnologyProps {
 
 const Technology = ({ setActive }: TechnologyProps) => {
     useEffect(() => {
-        setActive('technology')
-        return () => setActive('none')
+        setActive('technology');
+        return () => setActive('none');
     }, [setActive]);
 
     return (
@@ -20,7 +20,7 @@ const Technology = ({ setActive }: TechnologyProps) => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Technology
+export default Technology;

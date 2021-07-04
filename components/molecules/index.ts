@@ -1,1 +1,1 @@
-export { default as DialogControl } from './DialogControl'
+export { default as Modal } from './Modal';

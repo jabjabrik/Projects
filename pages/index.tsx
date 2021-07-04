@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { useEffect } from "react"
-import Meta from "../components/atoms/Meta"
+import Link from 'next/link';
+import { useEffect } from 'react';
+import { Meta } from '../components/atoms';
 
 interface HomeProps {
     setActive: (params: string) => void
@@ -8,11 +8,11 @@ interface HomeProps {
 
 const Home = ({ setActive }: HomeProps) => {
     useEffect(() => {
-        setActive('home')
+        setActive('home');
         return () => {
-            setActive('none')
-        }
-    }, [setActive])
+            setActive('none');
+        };
+    }, [setActive]);
     return (
         <>
             <Meta title="Home" />
@@ -34,7 +34,7 @@ const Home = ({ setActive }: HomeProps) => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;

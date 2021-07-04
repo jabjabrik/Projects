@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import DialogControl from '../molecules/DialogControl';
+import { useState } from 'react';
+import { Modal } from '../molecules';
 
-type MovieItemProps = {
-    title: string,
-    year: string,
-    poster: string,
+interface movieItemProps {
+    poster: string;
+    title: string;
+    year: string;
 }
 
-const MovieItem = ({ title, year, poster }: MovieItemProps) => {
+const MovieItem = ({ title, year, poster }: movieItemProps) => {
     const [open, setOpen] = useState<boolean>(false);
 
     return (
@@ -21,7 +21,7 @@ const MovieItem = ({ title, year, poster }: MovieItemProps) => {
                     </div>
                 </div>
             </div>
-            <DialogControl
+            <Modal
                 open={open}
                 setOpen={setOpen}
                 title={title}

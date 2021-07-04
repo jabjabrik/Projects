@@ -1,28 +1,22 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import { IconButton } from '@material-ui/core';
+import { IconButton, ListItemText, ListItemIcon, ListItem, Divider, List, SwipeableDrawer } from '@material-ui/core';
 import { Menu, Extension, Web, PersonPin, Person, PersonAdd } from '@material-ui/icons';
 import { useRouter } from 'next/router';
 
 const useStyles = makeStyles({
-  list: {
-    width: 250,
-  },
-  fullList: {
-    width: 'auto',
-  },
+    list: {
+        width: 250,
+    },
+    fullList: {
+        width: 'auto',
+    },
 });
 
-export default function SideBar() {
+const SideBar = () => {
     const classes = useStyles();
     const [open, setOpen] = useState<boolean>(false);
-    const router = useRouter()
+    const router = useRouter();
 
     return (
         <div className="lg:hidden mr-4">
@@ -30,15 +24,11 @@ export default function SideBar() {
                 <Menu />
             </IconButton>
 
-            <SwipeableDrawer
-                open={open}
-                onClose={() => setOpen(false)}
-                onOpen={() => setOpen(true)}
-            >
+            <SwipeableDrawer open={open} onClose={() => setOpen(false)} onOpen={() => setOpen(true)}>
                 <div className={classes.list}>
                     <List>
-                        {[[<Extension />, 'Projects'], [<Web />, 'Technology'], [<PersonPin />, 'About']].map(([icon, category], i) => (
-                            <ListItem button onClick={() => router.push(`/${category.toString().toLowerCase()}`)} key={i}>
+                        {[{ category: 'Projects', icon: <Extension /> }, { category: 'Technology', icon: <Web /> }, { category: 'About', icon: <PersonPin /> }].map(({ category, icon }) => (
+                            <ListItem button onClick={() => router.push(`/${category.toString().toLowerCase()}`)} key={category}>
                                 <ListItemIcon>{icon}</ListItemIcon>
                                 <ListItemText primary={category} />
                             </ListItem>
@@ -46,15 +36,17 @@ export default function SideBar() {
                     </List>
                     <Divider />
                     <List>
-                        {[['Sign in', <Person />], ['Sign up', <PersonAdd />]].map(([category, icon], i) => (
-                            <ListItem button key={i}>
+                        {[{ category: 'Sign in', icon: <Person /> }, { category: 'Sign up', icon: <PersonAdd /> }].map(({ category, icon }) => (
+                            <ListItem button key={category}>
                                 <ListItemIcon>{icon}</ListItemIcon>
                                 <ListItemText primary={category} />
-                            </ListItem>  
+                            </ListItem>
                         ))}
                     </List>
                 </div>
             </SwipeableDrawer>
         </div>
     );
-}
+};
+
+export default SideBar;
